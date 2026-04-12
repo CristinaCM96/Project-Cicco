@@ -1,135 +1,235 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Cicco</title>
     <style>
+    * {
+    box-sizing: border-box;
+}
+html, body {
+    overflow-x: hidden;
+}
     body {
-        background-color: #f5f5f5;
+        background: linear-gradient(to bottom, #fff7f3, #f5f5f5);
         font-family: Arial, sans-serif;
         text-align: center;
         padding: 50px;
+        margin: 0;
     }
 
     h1 {
-        color: #333;
+        color: #2f2f2f;
         font-size: 32px;
+        margin-bottom: 10px;
+        letter-spacing: 0.5px;
+    }
+
+    h2 {
+        margin-top: 25px;
+        margin-bottom: 10px;
+        color: #d14715;
+        font-size: 30px;
     }
 
     p {
         color: #666;
         font-size: 18px;
+        line-height: 1.6;
     }
+
     .container {
-    background-color: white;
-    max-width: 500px;
-    margin: auto;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-button {
-    background-color: #d14715;
-    font-size: 16px;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-}
+        background-color: white;
+        max-width: 90%;
+        width: 600px;
+        margin: auto;
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        transition: 0.3s;
+    }
 
-button:hover {
-    background-color: #ff4400;
-}
-hr {
-    margin: 20px 0;
-    border: none;
-    border-top: 1px solid #eee;
-}
+    .container:hover {
+        transform: translateY(-5px);
+    }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    background-color: #f0f0f0;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 8px;
-}
-li:hover {
-    background-color: #e0e0e0;
-    transition: 0.3s;
-}
-header {
-    background-color: #f76f39;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-weight: bold;
-    border-radius: 0 0 15px 15px;
-    margin-bottom: 20px;
-}
-h2 {
-    margin-top: 20px;
-}
-footer {
-    margin-top: 30px;
+    header {
+        background: linear-gradient(to right, #f76f39, #ff9a6c);
+        color: white;
+        padding: 18px;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 0 0 18px 18px;
+        margin-bottom: 25px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+header p {
+    margin-top: 5px;
     font-size: 14px;
-    color: #999;
+    opacity: 0.9;
 }
-.container:hover {
-    transform: scale(1.02);
-    transition: 0.3s;
-    transform: translateY(-5px);
+    hr {
+        margin: 25px 0;
+        border: none;
+        border-top: 1px solid #f0e1d9;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        background-color: #fff4ef;
+        margin: 8px 0;
+        padding: 12px;
+        border-radius: 10px;
+        color: #444;
+        font-weight: bold;
+        transition: 0.3s;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    li:hover {
+        background-color: #ffe5d8;
+    }
+
+    button {
+        background: linear-gradient(to right, #d14715, #ff6a2a);
+        font-size: 16px;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 6px 15px rgba(209, 71, 21, 0.25);
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(209, 71, 21, 0.3);
+    }
+
+    footer {
+        margin-top: 30px;
+        font-size: 14px;
+        color: #999;
+    }
+
+    @media (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
+
+    header {
+        padding: 16px 12px;
+        margin-bottom: 18px;
+        border-radius: 0 0 14px 14px;
+    }
+
+    h1 {
+        font-size: 26px;
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    li {
+        padding: 14px 10px;
+        font-size: 15px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 16px;
+        padding: 14px;
+        border-radius: 12px;
+    }
+
+    footer {
+        font-size: 13px;
+        margin-top: 22px;
+    }
 }
-.container {
-    transition: 0.3s;
+header p {
+    margin: 6px 0 0;
+    font-size: 15px;
+    opacity: 0.95;
+}
+.container p,
+.container h1,
+.container h2,
+li {
+    word-wrap: break-word;
 }
 </style>
 </head>
 <body>
-<header>
+    <header>
     <h2>Project Cicco 🐶✨</h2>
+    <p>Operation New Life</p>
 </header>
-<div class="container">
 
-    <h1>Hello, I'm Crispy</h1>
-    <p>Aspiring Frontend Developer 💻✨</p>
+    <div class="container">
+        <h1>Hello, I'm Crispy</h1>
+        <p>Aspiring Frontend Developer with a big dream and a fluffy co-pilot 💻🐶✨</p>
 
-    <hr>
-    <h2>About Me</h2>
-    <p>I'm currently learning coding to build a new life in the U.S.</p>
-    <p>And yes… I'm bringing my dog Cicco with me 🐶</p>
-   
-    <hr>
-    <h2>Skills</h2>
-    <ul>
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript (beginner)</li>
-    </ul>
-    <hr>
-    <h2>My Journey</h2>
-    <p>Started: Project Cicco 🐶✨</p>
-    <p>Status: In progress 🚀</p>
-    <hr>
-    <button onclick="changeText()">Click me 👀</button>
-    <p id="message">This is my new life starting...</p>
-</div>
-<footer>
-    <p>Made with 💛 by Crispy</p>
-</footer>
-<script>
-function changeText() {
-    let message = document.getElementById("message");
+        <hr>
 
-    if (message.innerHTML === "This is my new life starting...") {
-        message.innerHTML = "I'm building my future for Cicco 🐶💛";
-    } else {
-        message.innerHTML = "This is my new life starting...";
-    }
-}
-</script>
+        <h2>About Me</h2>
+        <p>I'm currently learning coding to build a new life in the U.S.</p>
+        <p>And yes… I'm bringing my dog Cicco with me 🐶</p>
+
+        <hr>
+
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript (beginner)</li>
+        </ul>
+
+        <hr>
+
+        <h2>My Journey</h2>
+        <p>Started: Project Cicco 🐶✨</p>
+        <p>Status: In progress 🚀</p>
+
+        <hr>
+
+        <button onclick="changeText()">Click me 👀</button>
+        <p id="message">This is my new life starting...</p>
+    </div>
+
+    <footer>
+        <p>Made with 💛 by Crispy</p>
+    </footer>
+
+    <script>
+        function changeText() {
+            let message = document.getElementById("message");
+
+            if (message.innerHTML === "This is my new life starting...") {
+                message.innerHTML = "I'm building my future for Cicco 🐶💛";
+            } else {
+                message.innerHTML = "This is my new life starting...";
+            }
+        }
+    </script>
 </body>
 </html>
