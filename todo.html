@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 2 - To-Do List</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #fff7f3, #f5f5f5);
+            margin: 0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            color: #2f2f2f;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 70%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(to right, #d14715, #ff6a2a);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        li {
+            background: #fff4ef;
+            margin: 10px 0;
+            padding: 14px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .done {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .task-buttons button {
+            margin-left: 6px;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+        .clear-btn {
+    margin-top: 15px;
+    background: #999;
+    box-shadow: none;
+}
+
+.clear-btn:hover {
+    background: #777;
+}
+        
+
+        @media (max-width: 600px) {
+            input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            button {
+                width: 100%;
+                margin: 0;
+            }
+
+            .input-group {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            li {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .task-buttons {
+                width: 100%;
+                display: flex;
+                gap: 10px;
+            }
+
+            .task-buttons button {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My To-Do List 🚀</h1>
+
+        <div class="input-group">
+            <input type="text" id="taskInput" placeholder="Enter a new task">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+
+        <ul id="taskList"></ul>
+       <button class="clear-btn" onclick="clearDoneTasks()">Clear finished tasks 🧹</button>
+    </div>
+
+    <script>
+        function addTask() {
+    let taskInput = document.getElementById("taskInput");
+    let taskText = taskInput.value.trim();
+
+    if (taskText === "") return;
+
+    createTaskElement(taskText);
+    saveTask(taskText);
+
+    taskInput.value = "";
+    taskInput.focus();
+}
+function createTaskElement(taskText, isDone = false) {
+    let li = document.createElement("li");
+
+    let span = document.createElement("span");
+    span.textContent = taskText;
+
+    if (isDone) {
+        span.classList.add("done");
+    }
+
+    let buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("task-buttons");
+
+    let doneButton = document.createElement("button");
+    doneButton.textContent = "Done";
+    doneButton.onclick = function () {
+        span.classList.toggle("done");
+        updateStorage();
+    };
+
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.onclick = function () {
+        li.remove();
+        updateStorage();
+    };
+
+    buttonContainer.appendChild(doneButton);
+    buttonContainer.appendChild(deleteButton);
+
+    li.appendChild(span);
+    li.appendChild(buttonContainer);
+
+    document.getElementById("taskList").appendChild(li);
+}
+function saveTask(taskText) {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    tasks.push({ text: taskText, done: false });
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+          function updateStorage() {
+    let tasks = [];
+
+    document.querySelectorAll("#taskList li").forEach(li => {
+        let text = li.querySelector("span").textContent;
+        let done = li.querySelector("span").classList.contains("done");
+
+        tasks.push({ text, done });
+    });
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+} 
+function clearDoneTasks() {
+    let tasks = document.querySelectorAll("#taskList li");
+
+    tasks.forEach(task => {
+        let span = task.querySelector("span");
+
+        if (span.classList.contains("done")) {
+            task.remove();
+        }
+    });
+
+    updateStorage();
+}
+    window.onload = function () {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+    tasks.forEach(task => {
+        createTaskElement(task.text, task.done);
+    });
+};    
+document.getElementById("taskInput").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        addTask();
+    
+    }
+});
+    </script>
+</body>
+</html>
