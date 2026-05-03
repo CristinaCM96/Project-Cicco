@@ -301,6 +301,16 @@ li {
         <p>Made with love 💛 by Crispy</p>
     </footer>
 
-    <script src="script.js"></script>
+   <script>
+        function changeText() {
+            let message = document.getElementById("message");
+
+            if (message.innerHTML === "This is my new life starting...") {
+                message.innerHTML = "I'm building my future for Cicco 🐶💛";
+            } else {
+                message.innerHTML = "This is my new life starting...";
+            }
+        }
+    </script>
 </body>
 </html>
