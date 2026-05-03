@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Dashboard</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #fff7f3, #f5f5f5);
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .dashboard {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+            color: #2f2f2f;
+        }
+
+        header p {
+            color: #666;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h2 {
+            color: #d14715;
+            margin-top: 0;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(to right, #d14715, #ff6a2a);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .time {
+            font-size: 36px;
+            font-weight: bold;
+            color: #d14715;
+            letter-spacing: 2px;
+        }
+
+        .small-text {
+            color: #666;
+            font-size: 15px;
+        }
+
+        .weather-info {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 16px;
+    background: linear-gradient(to bottom, #fff4ef, #ffffff);
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.weather-info h3 {
+    margin: 0 0 5px;
+}
+
+#weatherIcon {
+    width: 80px;
+    height: 80px;
+    display: none;
+    margin: 5px 0;
+}
+
+.temp {
+    font-size: 32px;
+    font-weight: bold;
+    color: #d14715;
+    margin: 8px 0;
+}
+        .list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .list li {
+            background: #fff4ef;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        .done {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.done-btn {
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #4CAF50;
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+.done-btn:hover {
+    background: #3e9442;
+}
+
+.delete-btn {
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: #999;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background: #777;
+}
+.note {
+    background: #fff4ef;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.note p {
+    margin: 0 0 8px 0;
+}
+
+.note button {
+    background: #999;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.note button:hover {
+    background: #777;
+}
+.edit-btn {
+    background: #4CAF50;
+    padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+.edit-btn:hover {
+    background: #3e9442;
+}
+.done-btn,
+.edit-btn,
+.delete-btn {
+    margin-top: 0;
+    margin-left: 6px;
+}
+.note p {
+    color: #555;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+        @media (max-width: 700px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            body {
+                padding: 25px 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>✨ Personal Dashboard ✨</h1>
+            <p>Your daily overview in one place</p>
+            <p class="small-text">Built with HTML, CSS, JavaScript, localStorage, and API data.</p>
+        </header>
+        <div class="grid">
+            <div class="card">
+                <h2>Clock ⏰</h2>
+                <p class="time" id="clock">--:--:--</p>
+                <p class="small-text">Current local time</p>
+            </div>
+
+            <div class="card">
+                <h2>Weather 🌤️</h2>
+                <input type="text" id="cityInput" placeholder="Enter city">
+                <button onclick="getWeather()">Search Weather</button>
+
+                    <div class="weather-info">
+                    <img id="weatherIcon" src="" alt="">
+
+                        <div>
+                        <h3 id="cityName">City Name</h3>
+                        <p class="temp" id="temperature">--°C</p>
+                        <p class="small-text" id="condition">Weather result will appear here.</p>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="card">
+    <h2>Quick To-Do 📋</h2>
+
+    <input type="text" id="todoInput" placeholder="Add a quick task">
+    <button onclick="addTask()">Add Task</button>
+
+    <ul class="list" id="todoList"></ul>
+    <p class="small-text" id="emptyTasks">No tasks yet.</p>
+</div>
+
+            <div class="card">
+    <h2>Quick Notes 📝</h2>
+
+    <textarea id="noteInput" placeholder="Write a quick note..."></textarea>
+    <button onclick="addNote()">Save Note</button>
+
+    <div id="notesList"></div>
+    <p class="small-text" id="emptyNotes">No notes yet.</p>
+</div>
+        </div>
+    </div>
+    <script>
+function updateClock() {
+    const now = new Date();
+
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    let seconds = now.getSeconds();
+
+
+    hours = hours.toString().padStart(2, "0");
+    minutes = minutes.toString().padStart(2, "0");
+    seconds = seconds.toString().padStart(2, "0");
+
+    const timeString = `${hours}:${minutes}:${seconds}`;
+
+    document.getElementById("clock").textContent = timeString;
+}
+
+updateClock();
+
+setInterval(updateClock, 1000);
+const apiKey = "dcdaa38484abc12106f09cb597224a4d";
+
+async function getWeather() {
+    const city = document.getElementById("cityInput").value.trim();
+
+    if (city === "") {
+        document.getElementById("cityName").textContent = "Please enter a city 🏙️";
+        document.getElementById("temperature").textContent = "";
+        document.getElementById("condition").textContent = "";
+        document.getElementById("weatherIcon").style.display = "none";
+        return;
+    }
+
+    document.getElementById("cityName").textContent = "Loading...";
+    document.getElementById("temperature").textContent = "";
+    document.getElementById("condition").textContent = "";
+    document.getElementById("weatherIcon").style.display = "none";
+
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        if (data.cod != 200) {
+            document.getElementById("cityName").textContent = "City not found 😢";
+            document.getElementById("temperature").textContent = "";
+            document.getElementById("condition").textContent = "";
+            document.getElementById("weatherIcon").style.display = "none";
+            return;
+        }
+
+        document.getElementById("cityName").textContent = data.name;
+        document.getElementById("temperature").textContent = Math.round(data.main.temp) + "°C";
+
+        let conditionText = data.weather[0].description;
+        conditionText = conditionText.charAt(0).toUpperCase() + conditionText.slice(1);
+        document.getElementById("condition").textContent = conditionText;
+
+        const iconCode = data.weather[0].icon;
+        const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+        document.getElementById("weatherIcon").src = iconUrl;
+        document.getElementById("weatherIcon").style.display = "block";
+
+    } catch (error) {
+        document.getElementById("cityName").textContent = "Something went wrong ⚠️";
+        document.getElementById("temperature").textContent = "";
+        document.getElementById("condition").textContent = "";
+        document.getElementById("weatherIcon").style.display = "none";
+    }
+}
+
+document.getElementById("cityInput").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        getWeather();
+    }
+});
+function addTask() {
+    const input = document.getElementById("todoInput");
+    const text = input.value.trim();
+
+    if (text === "") return;
+
+    createTask(text);
+    saveTask(text);
+    updateEmptyStates();
+
+    input.value = "";
+input.focus();
+
+}
+
+function createTask(text, isDone = false) {
+    const li = document.createElement("li");
+
+    const span = document.createElement("span");
+    span.textContent = text;
+
+    if (isDone) span.classList.add("done");
+
+    const btnContainer = document.createElement("div");
+
+    const doneBtn = document.createElement("button");
+    doneBtn.textContent = "Done";
+    doneBtn.classList.add("done-btn");
+    doneBtn.onclick = function () {
+        span.classList.toggle("done");
+        updateTasks();
+        updateEmptyStates();
+    };
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "✕";
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.onclick = function () {
+        li.remove();
+        updateTasks();
+        updateEmptyStates();
+    };
+
+    btnContainer.appendChild(doneBtn);
+    btnContainer.appendChild(deleteBtn);
+
+    li.appendChild(span);
+    li.appendChild(btnContainer);
+
+    document.getElementById("todoList").appendChild(li);
+}
+
+function saveTask(text) {
+    const tasks = JSON.parse(localStorage.getItem("dashboardTasks")) || [];
+    tasks.push({ text, done: false });
+    localStorage.setItem("dashboardTasks", JSON.stringify(tasks));
+}
+
+function updateTasks() {
+    const tasks = [];
+
+    document.querySelectorAll("#todoList li").forEach(li => {
+        const span = li.querySelector("span");
+        tasks.push({
+            text: span.textContent,
+            done: span.classList.contains("done")
+        });
+    });
+
+    localStorage.setItem("dashboardTasks", JSON.stringify(tasks));
+}
+document.getElementById("todoInput").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") addTask();
+});
+function updateEmptyStates() {
+    const taskCount = document.querySelectorAll("#todoList li").length;
+    const noteCount = document.querySelectorAll("#notesList .note").length;
+
+    document.getElementById("emptyTasks").style.display = taskCount === 0 ? "block" : "none";
+    document.getElementById("emptyNotes").style.display = noteCount === 0 ? "block" : "none";
+}
+function addNote() {
+    const input = document.getElementById("noteInput");
+    const text = input.value.trim();
+
+    if (text === "") return;
+
+    createNote(text);
+    saveNote(text);
+    updateEmptyStates();
+    input.value = "";
+    input.focus();
+}
+
+function createNote(text) {
+    const noteDiv = document.createElement("div");
+    noteDiv.classList.add("note");
+
+    const p = document.createElement("p");
+    p.textContent = text;
+
+    const buttonContainer = document.createElement("div");
+
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.classList.add("edit-btn");
+    editBtn.onclick = function () {
+        document.getElementById("noteInput").value = p.textContent;
+        noteDiv.remove();
+        updateNotes();
+        updateEmptyStates();
+        document.getElementById("noteInput").focus();
+    };
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.onclick = function () {
+        noteDiv.remove();
+        updateNotes();
+        updateEmptyStates();
+    };
+
+    buttonContainer.appendChild(editBtn);
+    buttonContainer.appendChild(deleteBtn);
+
+    noteDiv.appendChild(p);
+    noteDiv.appendChild(buttonContainer);
+
+    document.getElementById("notesList").appendChild(noteDiv);
+}
+
+function saveNote(text) {
+    const notes = JSON.parse(localStorage.getItem("dashboardNotes")) || [];
+    notes.push(text);
+    localStorage.setItem("dashboardNotes", JSON.stringify(notes));
+}
+
+function updateNotes() {
+    const notes = [];
+
+    document.querySelectorAll("#notesList p").forEach(note => {
+        notes.push(note.textContent);
+    });
+
+    localStorage.setItem("dashboardNotes", JSON.stringify(notes));
+}
+
+window.addEventListener("load", () => {
+    const tasks = JSON.parse(localStorage.getItem("dashboardTasks")) || [];
+    tasks.forEach(task => createTask(task.text, task.done));
+
+    const notes = JSON.parse(localStorage.getItem("dashboardNotes")) || [];
+    notes.forEach(note => createNote(note));
+
+    updateEmptyStates();
+});
+document.getElementById("noteInput").addEventListener("keydown", function(e) {
+    if (e.ctrlKey && e.key === "Enter") {
+        addNote();
+    }
+});
+
+</script>
+</body>
+</html>
