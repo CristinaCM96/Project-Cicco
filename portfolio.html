@@ -155,7 +155,29 @@ header p {
         li {
             word-wrap: break-word;
         }
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
 
+.badge {
+    background: linear-gradient(to right, #ffe5d8, #fff1eb);
+    color: #d14715;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.badge:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(to right, #ffd6c4, #ffe9e0);
+}
         @media (max-width: 600px) {
             body {
                 padding: 16px;
@@ -234,15 +256,16 @@ header p {
         <hr>
 
         <h2>Tech Stack</h2>
-<ul>
-    <li>HTML5</li>
-    <li>CSS3</li>
-    <li>JavaScript (ES6+)</li>
-    <li>Responsive Design</li>
-    <li>Local Storage</li>
-    <li>Weather API</li>
-    <li>Git & GitHub</li>
-</ul>
+
+<div class="tech-stack">
+    <span class="badge">HTML5</span>
+    <span class="badge">CSS3</span>
+    <span class="badge">JavaScript (ES6+)</span>
+    <span class="badge">Responsive Design</span>
+    <span class="badge">Local Storage</span>
+    <span class="badge">Weather API</span>
+    <span class="badge">Git & GitHub</span>
+</div>
         <hr>
 
         <h2>Projects</h2>
