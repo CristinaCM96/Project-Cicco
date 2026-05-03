@@ -139,6 +139,41 @@ a:hover {
         font-size: 14px;
         color: #999;
     }
+    .tagline {
+    font-size: 19px;
+    color: #555;
+    max-width: 500px;
+    margin: 0 auto 20px;
+}
+
+.project-preview {
+    margin-top: 25px;
+}
+
+.project-card {
+    background: #fff7f3;
+    border: 1px solid #f3d4c7;
+    padding: 18px;
+    margin: 14px 0;
+    border-radius: 16px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(209, 71, 21, 0.12);
+}
+
+.project-card h3 {
+    margin: 0 0 8px;
+    color: #d14715;
+}
+
+.project-card p {
+    margin: 0;
+    font-size: 16px;
+}
 
     @media (max-width: 600px) {
     body {
@@ -206,10 +241,28 @@ li {
 
 
     <div class="container">
-        <p><a href="portfolio.html">View Professional Portfolio 💼</a></p>
+        <p><a href="portfolio.html">View My Developer Portfolio 💼</a></p>
         <h1>Hello, I'm Crispy</h1>
-        <p>Just a gorl with a big dream and a fluffy co-pilot 💻🐶✨</p>
+<p class="tagline">Frontend developer in progress, building cozy, useful apps with HTML, CSS, and JavaScript.</p>
 
+<div class="project-preview">
+    <h2>Featured Projects</h2>
+
+    <div class="project-card">
+        <h3>To-Do App ✅</h3>
+        <p>A simple task manager using JavaScript and localStorage.</p>
+    </div>
+
+    <div class="project-card">
+        <h3>Notes App 📝</h3>
+        <p>A notes app for saving ideas, thoughts, and reminders.</p>
+    </div>
+
+    <div class="project-card">
+        <h3>Dashboard ⏰🌦️</h3>
+        <p>A mini dashboard with a live clock, weather API, and saved user data.</p>
+    </div>
+</div>
         <hr>
 
         <h2>About Me</h2>
