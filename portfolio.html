@@ -43,7 +43,7 @@
         .container {
             background-color: white;
             max-width: 90%;
-            width: 650px;
+            width: 680px;
             margin: auto;
             margin-top: 10px;
             padding: 35px;
@@ -65,19 +65,19 @@
         border-radius: 0 0 18px 18px;
         margin-bottom: 25px;
     
-    }
-    header h2 {
-    font-size: 50px;
-    letter-spacing: 1px;
-    font-family: 'Playfair Display', serif;
-}
-header p {
-    margin-top: 8px;
-    font-size: 25px;
-    opacity: 0.85;
-    letter-spacing: 1px;
-    font-style: italic;
-}
+        }
+        header h2 {
+            font-size: 50px;
+            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif;
+        }
+        header p {
+            margin-top: 8px;
+            font-size: 25px;
+            opacity: 0.85;
+            letter-spacing: 1px;
+            font-style: italic;
+        }
         hr {
             margin: 25px 0;
             border: none;
@@ -92,20 +92,36 @@ header p {
 
         li {
             background-color: #fff4ef;
-            margin: 10px 0;
-            padding: 14px;
-            border-radius: 10px;
+            margin: 16px 0;
+            padding: 20px;
+            border-radius: 16px;
             color: #444;
             font-weight: normal;
             transition: 0.3s;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             text-align: left;
+            line-height: 1.55;
+            border: 1px solid #f3d4c7;
         }
 
         li:hover {
             background-color: #ffe5d8;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(209, 71, 21, 0.12);
         }
 
+        li strong {
+            display: block;
+            color: #d14715;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        li a {
+            display: inline-block;
+            margin-top: 8px;
+        }
+    
         a {
             color: #d14715;
             text-decoration: none;
@@ -210,9 +226,9 @@ header p {
                 border-radius: 16px;
             }
 
-            li {
-                padding: 14px 10px;
-                font-size: 15px;
+            } li { 
+                padding: 14px 10px; 
+                font-size: 15px; 
             }
 
             button {
@@ -230,7 +246,7 @@ header p {
             footer p {
                 font-size: 13px;
             }
-        }
+        
     </style>
 </head>
 <body>
@@ -273,7 +289,7 @@ header p {
         <h2>Projects</h2>
         <ul>
             <li>
-                <strong>Cicco Planner 🐶✨</strong><br>
+                <strong>Cicco Planner</strong><br>
                 A cozy productivity planner built with React and localStorage featuring task boards, goals, notes, editing, keyboard shortcuts, responsive design, and polished UX.<br>
                 <a href="https://cristinacm96.github.io/cicco-planner/" target="_blank">View Project 📊</a> |
                 <a href="https://github.com/cristinacm96/cicco-planner" target="_blank">Code</a>
