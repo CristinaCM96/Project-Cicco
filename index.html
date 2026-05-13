@@ -6,11 +6,13 @@
     <title>Project Cicco</title>
     <style>
     * {
-    box-sizing: border-box;
-}
-html, body {
-    overflow-x: hidden;
-}
+        box-sizing: border-box;
+    }
+
+    html, body {
+        overflow-x: hidden;
+    }
+
     body {
         background: linear-gradient(to bottom, #fff7f3, #f5f5f5);
         font-family: Arial, sans-serif;
@@ -63,20 +65,22 @@ html, body {
         font-weight: bold;
         border-radius: 0 0 18px 18px;
         margin-bottom: 25px;
-    
     }
+
     header h2 {
-    font-size: 50px;
-    letter-spacing: 1px;
-    font-family: 'Playfair Display', serif;
-}
-header p {
-    margin-top: 8px;
-    font-size: 25px;
-    opacity: 0.85;
-    letter-spacing: 1px;
-    font-style: italic;
-}
+        font-size: 50px;
+        letter-spacing: 1px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    header p {
+        margin-top: 8px;
+        font-size: 25px;
+        opacity: 0.85;
+        letter-spacing: 1px;
+        font-style: italic;
+    }
+
     hr {
         margin: 25px 0;
         border: none;
@@ -87,7 +91,6 @@ header p {
         list-style: none;
         padding: 0;
         margin-bottom: 10px;
-
     }
 
     li {
@@ -106,15 +109,16 @@ header p {
     li:hover {
         background-color: #ffe5d8;
     }
-    a {
-    color: #d14715;
-    text-decoration: none;
-    font-weight: bold;
-}
 
-a:hover {
-    text-decoration: underline;
-}
+    a {
+        color: #d14715;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
 
     button {
         background: linear-gradient(to right, #d14715, #ff6a2a);
@@ -131,7 +135,7 @@ a:hover {
 
     button:hover {
         transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(209, 71, 21, 0.3);
+        box-shadow: 0 8px 20px rgba(209, 71, 21, 0.3);
     }
 
     footer {
@@ -139,176 +143,268 @@ a:hover {
         font-size: 14px;
         color: #999;
     }
+
     .tagline {
-    font-size: 19px;
-    color: #555;
-    max-width: 500px;
-    margin: 0 auto 20px;
-}
+        font-size: 19px;
+        color: #555;
+        max-width: 500px;
+        margin: 0 auto 20px;
+    }
 
-.project-preview {
-    margin-top: 25px;
-}
+    .project-preview {
+        margin-top: 25px;
+    }
 
-.project-card {
-    background: #fff7f3;
-    border: 1px solid #f3d4c7;
-    padding: 18px;
-    margin: 18px 0;
-    border-radius: 16px;
-    text-align: left;
-    transition: 0.3s;
-    line-height: 1.7;
-}
+    .project-card {
+        background: #fff7f3;
+        border: 1px solid #f3d4c7;
+        padding: 18px;
+        margin: 18px 0;
+        border-radius: 16px;
+        text-align: left;
+        transition: 0.3s;
+        line-height: 1.7;
+    }
 
-.project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(209, 71, 21, 0.12);
-}
+    .project-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 18px rgba(209, 71, 21, 0.12);
+    }
 
-.project-card h3 {
-    margin: 0 0 8px;
-    color: #d14715;
-    font-size: 22px;
-}
+    .project-card h3 {
+        margin: 0 0 8px;
+        color: #d14715;
+        font-size: 22px;
+    }
 
-.project-card p {
-    margin: 0;
-    font-size: 16px;
-    color: #555;
-}
-.project-card a {
-    display: inline-block;
-    margin-top: 8px;
-    transition: 0.2s;
-}
+    .project-card p {
+        margin: 0;
+        font-size: 16px;
+        color: #555;
+    }
 
-.project-card a:hover {
-    transform: translateX(3px);
-}
+    .project-card a {
+        display: inline-block;
+        margin-top: 8px;
+        transition: 0.2s;
+    }
+
+    .project-card a:hover {
+        transform: translateX(3px);
+    }
+
+    .expanded-intro {
+        max-width: 560px;
+        margin: 0 auto 18px;
+        font-size: 16px;
+        color: #666;
+    }
+
+    .expanded-card {
+        background: linear-gradient(135deg, #fff4ef, #ffffff);
+        border: 1px solid #f3c7b5;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .expanded-card::before {
+        content: "Expanded Project";
+        display: inline-block;
+        background: #d14715;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+
+    .expanded-card h3 {
+        color: #2f2f2f;
+    }
+
+    .expanded-card strong {
+        color: #d14715;
+    }
+
+    .mini-tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+    }
+
+    .mini-tech-stack span {
+        background: #ffe5d8;
+        color: #d14715;
+        padding: 6px 10px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: bold;
+    }
 
     @media (max-width: 600px) {
-    body {
-        padding: 16px;
+        body {
+            padding: 16px;
+        }
+
+        header {
+            padding: 16px 12px;
+            margin-bottom: 18px;
+            border-radius: 0 0 14px 14px;
+        }
+
+        header h2 {
+            font-size: 32px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        h1 {
+            font-size: 26px;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding: 22px;
+            border-radius: 16px;
+        }
+
+        li {
+            padding: 14px 10px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            font-size: 16px;
+            padding: 14px;
+            border-radius: 12px;
+        }
+
+        footer {
+            font-size: 13px;
+            margin-top: 22px;
+        }
     }
 
-    header {
-        padding: 16px 12px;
-        margin-bottom: 18px;
-        border-radius: 0 0 14px 14px;
-    }
-
-    h1 {
-        font-size: 26px;
-        line-height: 1.2;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    p {
-        font-size: 16px;
-        line-height: 1.5;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 100%;
-        padding: 22px;
-        border-radius: 16px;
-    }
-
+    .container p,
+    .container h1,
+    .container h2,
     li {
-        padding: 14px 10px;
-        font-size: 15px;
+        word-wrap: break-word;
     }
-
-    button {
-        width: 100%;
-        font-size: 16px;
-        padding: 14px;
-        border-radius: 12px;
-    }
-
-    footer {
-        font-size: 13px;
-        margin-top: 22px;
-    }
-}
-
-.container p,
-.container h1,
-.container h2,
-li {
-    word-wrap: break-word;
-}
 </style>
 </head>
 <body>
     <header>
-    <h2>Project Cicco 🐶✨</h2>
-    <p>Operation New Life</p>
-</header>
-
+        <h2>Project Cicco 🐶✨</h2>
+        <p>Operation New Life</p>
+    </header>
 
     <div class="container">
         <p><a href="portfolio.html">View My Developer Portfolio 💼</a></p>
+
         <h1>Hello, I'm Crispy</h1>
-<p class="tagline">Frontend developer in progress, building cozy, useful apps with React, JavaScript, HTML, and CSS.</p>
+        <p class="tagline">Frontend developer in progress, building cozy, useful apps with React, JavaScript, HTML, and CSS.</p>
 
-<div class="project-preview">
-    <h2>Featured Projects</h2>
+        <div class="project-preview">
+            <h2>Featured Projects</h2>
 
-    <div class="project-card">
-        <h3>Career Tracker 💼</h3>
-        <p>A polished React job application tracker featuring status boards, search, sorting, filters, follow-up reminders, keyboard shortcuts, responsive design, and localStorage persistence.</p>
-        <a href="https://cristinacm96.github.io/cicco-career-tracker/">Open Career Tracker</a>
-    </div>
+            <div class="project-card">
+                <h3>Career Tracker 💼</h3>
+                <p>A polished React job application tracker featuring status boards, search, sorting, filters, follow-up reminders, keyboard shortcuts, responsive design, and localStorage persistence.</p>
+                <a href="https://cristinacm96.github.io/cicco-career-tracker/">Open Career Tracker</a>
+            </div>
 
-    <div class="project-card">
-        <h3>Cicco Planner 🐶</h3>
-        <p>A cozy productivity planner built with React and localStorage featuring task boards, goals, notes, editing, keyboard shortcuts, responsive design, and polished UX.</p>
-        <a href="https://cristinacm96.github.io/cicco-planner/">Open Cicco Planner</a>
-    </div>
+            <div class="project-card">
+                <h3>Cicco Planner 🐶</h3>
+                <p>A cozy productivity planner built with React and localStorage featuring task boards, goals, notes, editing, keyboard shortcuts, responsive design, and polished UX.</p>
+                <a href="https://cristinacm96.github.io/cicco-planner/">Open Cicco Planner</a>
+            </div>
 
-    <div class="project-card">
-        <h3>Recipe Book 🍰</h3>
-        <p>A cozy React recipe book with localStorage, full CRUD functionality, favorites, categories, search filters, keyboard shortcuts, and responsive design.</p>
-        <a href="https://cristinacm96.github.io/recipe-book/">Open Recipe Book App</a>
-    </div>
+            <div class="project-card">
+                <h3>Recipe Book 🍰</h3>
+                <p>A cozy React recipe book with localStorage, full CRUD functionality, favorites, categories, search filters, keyboard shortcuts, and responsive design.</p>
+                <a href="https://cristinacm96.github.io/recipe-book/">Open Recipe Book App</a>
+            </div>
 
-    <div class="project-card">
-        <h3>Dashboard ⏰🌦️</h3>
-        <p>A mini productivity dashboard with a live clock, weather API, task tools, notes, and persistent localStorage data.</p>
-        <a href="dashboard.html">Open Dashboard</a>
-    </div>
+            <div class="project-card">
+                <h3>Dashboard ⏰🌦️</h3>
+                <p>A mini productivity dashboard with a live clock, weather API, task tools, notes, and persistent localStorage data.</p>
+                <a href="dashboard.html">Open Dashboard</a>
+            </div>
 
-    <div class="project-card">
-        <h3>Weather App 🌤️</h3>
-        <p>A real-time weather application using an external API with dynamic search, responsive UI updates, and error handling.</p>
-        <a href="weather.html">Open Weather App</a>
-    </div>
+            <div class="project-card">
+                <h3>Weather App 🌤️</h3>
+                <p>A real-time weather application using an external API with dynamic search, responsive UI updates, and error handling.</p>
+                <a href="weather.html">Open Weather App</a>
+            </div>
 
-    <div class="project-card">
-        <h3>Notes App 📝</h3>
-        <p>A notes app for saving ideas, thoughts, and reminders.</p>
-        <a href="notes.html">Open Notes App</a>
-    </div>
+            <div class="project-card">
+                <h3>Notes App 📝</h3>
+                <p>A notes app for saving ideas, thoughts, and reminders.</p>
+                <a href="notes.html">Open Notes App</a>
+            </div>
 
-    <div class="project-card"> 
-        <h3>To-Do App ✅</h3> 
-        <p>A simple task manager using JavaScript and localStorage.</p> 
-        <a href="todo.html">Open To-Do App</a> 
-    </div>
-</div>
+            <div class="project-card"> 
+                <h3>To-Do App ✅</h3> 
+                <p>A simple task manager using JavaScript and localStorage.</p> 
+                <a href="todo.html">Open To-Do App</a> 
+            </div>
+        </div>
+
+        <hr>
+
+        <h2>Expanded Projects</h2>
+        <p class="expanded-intro">
+            Beyond cozy apps, I also build larger frontend projects focused on real-world workflows,
+            analytics, dashboards, and more advanced user interactions.
+        </p>
+
+        <div class="project-card expanded-card">
+            <h3>Operational Performance Dashboard 📊</h3>
+            <p>
+                A professional dark-mode analytics dashboard for tracking task efficiency, downtime,
+                errors, working time, and operational performance metrics.
+            </p>
+            <p>
+                <strong>Features:</strong> full CRUD, Chart.js graphs, search, filtering, sorting,
+                CSV export, keyboard shortcuts, localStorage persistence, and downtime-adjusted
+                efficiency calculations.
+            </p>
+
+            <div class="mini-tech-stack">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Chart.js</span>
+                <span>localStorage</span>
+            </div>
+
+            <a href="https://cristinacm96.github.io/operational-performance-dashboard/">Open Operational Dashboard</a>
+        </div>
+
         <hr>
 
         <h2>About Me</h2>
-            <p>I'm an empathetic person who believes in the good in people. I enjoy meaningful conversations and connecting with others on a deeper level, while still keeping things light, fun, and full of positive energy.</p>
-            <p>I'm naturally curious and open-minded, and I love exploring new ideas and understanding different perspectives. I value kindness, growth, and seeing the best in the world around me.</p>
-            <p>Right now, I'm working towards building a new life in the U.S. and growing into a frontend developer.</p>
-            <p>And yes… I'm bringing my dog Cicco with me 🐶</p>
+        <p>I'm an empathetic person who believes in the good in people. I enjoy meaningful conversations and connecting with others on a deeper level, while still keeping things light, fun, and full of positive energy.</p>
+        <p>I'm naturally curious and open-minded, and I love exploring new ideas and understanding different perspectives. I value kindness, growth, and seeing the best in the world around me.</p>
+        <p>Right now, I'm working towards building a new life in the U.S. and growing into a frontend developer.</p>
+        <p>And yes… I'm bringing my dog Cicco with me 🐶</p>
 
         <hr>
 
@@ -319,15 +415,17 @@ li {
             <li>Baking</li>
             <li>Writing</li>
         </ul>
-<hr>
 
-<h2>Goals</h2>
-<ul>
-    <li>Become a frontend developer</li>
-    <li>Move to the U.S.</li>
-    <li>Have my own business</li>
-</ul>
-<hr>
+        <hr>
+
+        <h2>Goals</h2>
+        <ul>
+            <li>Become a frontend developer</li>
+            <li>Move to the U.S.</li>
+            <li>Have my own business</li>
+        </ul>
+
+        <hr>
 
         <button onclick="changeText()">A Little Reminder</button>
         <p id="message">This is my new life starting...</p>
